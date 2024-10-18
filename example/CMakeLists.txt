@@ -11,6 +11,9 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+#find_package(Protobuf CONFIG REQUIRED)
+
 protobuf_generate_cpp(
             TEST_PROTO_SRC 
             TEST_PROTO_HDR
@@ -24,4 +27,6 @@ add_dependencies(test-fuzzer aflpm)
 target_link_libraries(test-fuzzer aflpm)
 
 add_executable(bootstramp bootstramp.cc ${TEST_PROTO_SRC})
-target_link_libraries(bootstramp "protobuf")
+add_dependencies(bootstramp protobuf)
+
+target_link_libraries(bootstramp protobuf)

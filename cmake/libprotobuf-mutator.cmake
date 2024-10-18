@@ -95,7 +95,7 @@ list(APPEND _IMPORT_CHECK_TARGETS libprotobuf-mutator::protobuf-mutator )
 list(APPEND _IMPORT_CHECK_FILES_FOR_libprotobuf-mutator::protobuf-mutator "${LPM_LIB_DIR}/libprotobuf-mutator.a" )
 
 set(LPM_GIT_URL      https://github.com/google/libprotobuf-mutator.git)  
-set(LPM_GIT_TAG      v1.0)
+set(LPM_GIT_TAG      v1.3)
 set(LPM_CONFIGURE    cd ${LPM_INSTALL_DIR}/src/${LPM_TARGET} && ${CMAKE_COMMAND} .                   
                         -DLIB_PROTO_MUTATOR_DOWNLOAD_PROTOBUF=OFF
                         -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
@@ -104,7 +104,8 @@ set(LPM_CONFIGURE    cd ${LPM_INSTALL_DIR}/src/${LPM_TARGET} && ${CMAKE_COMMAND}
                         -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER} 
                         -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
                         -DCMAKE_C_FLAGS=${CMAKE_C_FLAGS}
-                        -DCMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS})
+                        -DCMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS}
+			-DLIB_PROTO_MUTATOR_TESTING=OFF)
 set(LPM_MAKE         cd ${LPM_INSTALL_DIR}/src/${LPM_TARGET} && make)
 set(LPM_INSTALL      cd ${LPM_INSTALL_DIR}/src/${LPM_TARGET} && make install)
 
