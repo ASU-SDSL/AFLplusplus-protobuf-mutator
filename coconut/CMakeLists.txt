@@ -7,7 +7,7 @@ protobuf_generate_cpp(
             TEST_PROTO_HDR
             command.proto)
 
-add_library(${MUTATOR_NAME} STATIC
+add_library(${MUTATOR_NAME}
     ${TEST_PROTO_SRC} 
     command_proto_mutator.cpp
 )
@@ -38,7 +38,6 @@ add_dependencies(${TEST_PROTO_CREATOR_NAME}
 
 target_link_libraries(${TEST_PROTO_CREATOR_NAME}
     aflpm
-    -static
 )
 
 # target_include_directories(${TEST_PROTO_CREATOR_NAME}
