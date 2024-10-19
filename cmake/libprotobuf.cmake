@@ -60,7 +60,8 @@ include (ExternalProject)
 ExternalProject_Add(${PROTOBUF_TARGET}
     PREFIX ${PROTOBUF_INSTALL_DIR}
     GIT_REPOSITORY https://github.com/google/protobuf.git
-    GIT_TAG v27.5
+    #GIT_TAG v27.5
+    GIT_TAG v21.12 # pre-absl version
     CONFIGURE_COMMAND ${CMAKE_COMMAND} ${PROTOBUF_INSTALL_DIR}/src/${PROTOBUF_TARGET}
         -G${CMAKE_GENERATOR}
         -DCMAKE_INSTALL_PREFIX=${PROTOBUF_INSTALL_DIR}
@@ -77,9 +78,11 @@ ExternalProject_Add(${PROTOBUF_TARGET}
 
 # cmake 3.7 uses Protobuf_ when 3.5 PROTOBUF_ prefixes.
 set(Protobuf_INCLUDE_DIRS ${PROTOBUF_INCLUDE_DIRS})
-set(Protobuf_LIBRARIES ${PROTOBUF_LIBRARIES})
+set(Protobuf_LIBRARIES absl ${PROTOBUF_LIBRARIES})
 set(Protobuf_PROTOC_EXECUTABLE ${PROTOBUF_PROTOC_EXECUTABLE})
 list(APPEND CMAKE_PREFIX_PATH ${PROTOBUF_INSTALL_DIR})
 
-#set(absl_INCLUDE_DIRS ${PROTOBUF_INSTALL_DIR})
-
+#set(absl_ROOT ${PROTOBUF_INSTALL_DIR}/lib/cmake/absl/)
+#set(absl_INCLUDE_DIRS ${Protobuf_INCLUDE_DIRS}/absl)
+#set(absl_LIBRARIES ${Protobuf_LIBRARIES})
+#list(APPEND CMAKE_PREFIX_PATH ${PROTOBUF_INSTALL_DIR}/lib/cmake/absl/)
