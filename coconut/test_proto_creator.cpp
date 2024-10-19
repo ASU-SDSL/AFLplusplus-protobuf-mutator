@@ -25,10 +25,10 @@ int main(int argc, char** argv) {
     
     input->mutable_command()->set_payload(payload, 4);
 
-    // // Write binary output to file
-    // std::ofstream ofs(argv[1], std::ios_base::out | std::ios_base::binary);
-    // inputs->SerializeToOstream(&ofs);
-    // std::cout << "Writing to file " << argv[1] << std::endl; 
+    // Write binary output to file
+    std::ofstream ofs(argv[1], std::ios_base::out | std::ios_base::binary);
+    inputs->SerializeToOstream(&ofs);
+    std::cout << "Writing to file " << argv[1] << std::endl; 
 
     // Write text output to stdout 
     std::string buffer; 

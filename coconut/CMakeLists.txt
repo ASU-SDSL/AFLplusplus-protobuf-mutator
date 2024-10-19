@@ -7,7 +7,7 @@ protobuf_generate_cpp(
             TEST_PROTO_HDR
             command.proto)
 
-add_library(${MUTATOR_NAME}
+add_library(${MUTATOR_NAME} SHARED
     ${TEST_PROTO_SRC} 
     command_proto_mutator.cpp
 )

@@ -50,7 +50,7 @@ size_t BuildSpacepackets(const FuzzInputs& inputs, unsigned char **out_buf){
     return total_size;
 }
 
-DEFINE_AFL_TEXT_PROTO_FUZZER(const FuzzInputs& inputs, unsigned char **out_buf){
+DEFINE_AFL_BINARY_PROTO_FUZZER(const FuzzInputs& inputs, unsigned char **out_buf){
     // transfer the input to some interesting DATA
     // and output the DATA to *out_buf
     
