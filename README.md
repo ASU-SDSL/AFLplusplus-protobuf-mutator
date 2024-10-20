@@ -1,3 +1,4 @@
+I've concluded that I dont think this library ever worked as intended. When AFL saves an input that it thinks it's interesting/wants to mutate, it saves it as the raw binary packet instead of the protobuf text/binary format. This means that it tries to load the packet as a protobuf in the future and fails. On older AFL versions this crashes immediately as it obviously cannot load the spacepacket bytes as a protobuf. I don't think there is a good way to solve this problem with the AFL custom mutator system either, I think you would just have to get rid of the proto->packet conversion inside the custom mutator and just do it inside the harness (like how libfuzzer does it)
 # AFLplusplus-protobuf-mutator
 AFLplusplus + libprotobuf-mutator 
 ## Overview
